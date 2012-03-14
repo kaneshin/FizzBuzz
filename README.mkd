@@ -12,11 +12,8 @@ Perl
 Ruby
 ----
 - FizzBuzz.rb
-    - FizzBuzz class file
 - FizzBuzzTest.rb
-    - FizzBuzz test file
 - RunFizzBuzz.rb
-    - FizzBuzz run file
 
 License
 -------
