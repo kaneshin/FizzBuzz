@@ -3,6 +3,12 @@ FizzBuzz
 
 There are some FizzBuzz problem solutions.
 
+Perl
+----
+- FizzBuzz.pl
+- lib/FizzBuzz.pm
+- t/FizzBuzzTest.t
+
 Ruby
 ----
 - FizzBuzz.rb
