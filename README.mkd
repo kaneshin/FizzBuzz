@@ -3,8 +3,8 @@ FizzBuzz
 
 There are some FizzBuzz problem solutions.
 
-ruby/
------
+Ruby
+----
 - FizzBuzz.rb
     - FizzBuzz class file
 - FizzBuzzTest.rb
