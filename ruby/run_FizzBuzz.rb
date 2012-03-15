@@ -5,6 +5,6 @@
 # Description:
 #===========================================================================
 
-require "./FizzBuzz"
+require File.dirname(__FILE__) + '/FizzBuzz/'
 
-puts(FizzBuzz.new(ARGV[0].to_i(10)).getFizzBuzz())
+puts(FizzBuzz.new(ARGV[0].to_i(10)).get_FizzBuzz())

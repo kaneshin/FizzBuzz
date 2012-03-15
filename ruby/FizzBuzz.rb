@@ -12,11 +12,11 @@ class FizzBuzz
 
     def initialize(term)
         @fb_arr = Array.new(term)
-        doFizzBuzz()
+        do_FizzBuzz()
     end
 
     private
-    def doFizzBuzz()
+    def do_FizzBuzz()
         1.upto(@fb_arr.length) {|num|
             res = ""
             res += FIZZ if num % FIZZBUZZ[FIZZ] == 0
@@ -26,7 +26,7 @@ class FizzBuzz
     end
 
     public
-    def getFizzBuzz()
+    def get_FizzBuzz()
         return @fb_arr
     end
 end
