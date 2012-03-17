@@ -1,6 +1,6 @@
 #===========================================================================
 # File: FizzBuzz.rb
-# Last Change: 12-Mar-2012.
+# Last Change: 17-Mar-2012.
 # Maintainer: Shintaro Kaneko <kaneshin0120@gmail.com>
 # Description:
 #===========================================================================
@@ -19,7 +19,7 @@ class FizzBuzz
     def do_FizzBuzz()
         1.upto(@fb_arr.length) {|num|
             res = ""
-            res += FIZZ if num % FIZZBUZZ[FIZZ] == 0
+            res = FIZZ if num % FIZZBUZZ[FIZZ] == 0
             res += BUZZ if num % FIZZBUZZ[BUZZ] == 0
             @fb_arr[num - 1] = res == "" ? num : res
         }
