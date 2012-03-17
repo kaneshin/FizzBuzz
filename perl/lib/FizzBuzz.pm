@@ -1,67 +1,47 @@
 #===========================================================================
 # File: FizzBuzz.pm
-# Last Change: 13-Mar-2012.
+# Last Change: 17-Mar-2012.
 # Maintainer: Shintaro Kaneko <kaneshin0120@gmail.com>
-# Description:
-# ToDo:
-#   Make function of checking validation of argument.
 #===========================================================================
 
 package FizzBuzz;
 use strict;
 use warnings;
 use utf8;
-our $VERSION = '0.01';
+use Readonly;
+our $VERSION = '0.9.0';
 
-sub getFizzBuzz {
-    my $num = shift;
-    my @fb_arr = ();
-    for ( my $i = 1; $i <= $num; $i++ ) {
-        if ( $i % 15 == 0 ) {
-            $fb_arr[$i-1] = 'FizzBuzz';
-        }
-        elsif ( $i % 3 == 0 ) {
-            $fb_arr[$i-1] = 'Fizz';
-        }
-        elsif ( $i % 5 == 0 ) {
-            $fb_arr[$i-1] = 'Buzz';
-        }
-        else {
-            $fb_arr[$i-1] = $i;
-        }
-    }
-    return @fb_arr;
+Readonly my $FIZZ => 'Fizz';
+Readonly my $BUZZ => 'Buzz';
+Readonly my %FIZZBUZZ => ($FIZZ => 3, $BUZZ => 5);
+
+my @fizzbuzz_array;
+my $termination;
+
+sub get_FizzBuzz {
+    @fizzbuzz_array = ();
+    _do_FizzBuzz() if ($termination = _check_termination($_[0])) > 0;
+    return @fizzbuzz_array;
 }
 
-# sub _valid_num {
-#     my $arg = shift;
-#     return ( $arg =~ /^\d+$/ ? $arg : -1 );
-# }
+sub _check_termination {
+    return $_[0] =~ /^\d+$/ ? $_[0] : 0;
+}
+
+sub _do_FizzBuzz {
+    my $ret;
+    for (my $i = 1; $i <= $termination; $i++) {
+        if (($i % $FIZZBUZZ{$FIZZ} == 0) or ($i % $FIZZBUZZ{$BUZZ} == 0)) {
+            $ret = '';
+            $ret = $FIZZ if $i % $FIZZBUZZ{$FIZZ} == 0;
+            $ret .= $BUZZ if $i % $FIZZBUZZ{$BUZZ} == 0;
+        }
+        else {
+            $ret = $i;
+        }
+        push @fizzbuzz_array, $ret;
+    }
+}
 
 1;
 __END__
-
-=head1 NAME
-
-FizzBuzz -
-
-=head1 SYNOPSIS
-
-  use FizzBuzz;
-
-=head1 DESCRIPTION
-
-FizzBuzz is here.
-
-=head1 AUTHOR
-
-Shintaro Kaneko E<lt>kaneshin0120@gmail.comE<gt>
-
-=head1 SEE ALSO
-
-=head1 LICENSE
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
-
-=cut
